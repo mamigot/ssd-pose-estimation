@@ -18,6 +18,10 @@ The rest of this README details our process/results, as well as details on how t
 1. Pose Estimation
 
     The thing we performed was pose estimation on a series of images we took of Mohammad, where he slowly moved across the screen. Below are a before and after images for 1 frame.
+    
+    Random Image:
+    
+    ![Bert](https://user-images.githubusercontent.com/4607838/31524096-76616e00-af85-11e7-838b-0f1dfddd2890.png)
 
     Original Image:
 
