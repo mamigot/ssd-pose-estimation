@@ -14,6 +14,7 @@ sys.path.append('/Users/mohammadafshar1/Desktop/SCHOOL/College/NYU/Graduate/Fall
 
 import tensorflow as tf
 import numpy as np
+import requests
 import six.moves.urllib as urllib
 import matplotlib.image as mpimg
 
@@ -27,6 +28,17 @@ from preprocessing import ssd_vgg_preprocessing
 from notebooks import visualization
 
 slim = tf.contrib.slim
+
+
+def heartbeat(url):
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        print('All good.')
+        return
+    
+    # Something's not right
+    r.raise_for_status()
 
 
 gpu_options = tf.GPUOptions(allow_growth=True)
@@ -58,6 +70,10 @@ saver.restore(isess, ckpt_filename)
 #
 # # SSD default anchor boxes.
 ssd_anchors = ssd_net.anchors(net_shape)
+
+# Check if google.com is still up
+# Will throw an exception if it's not
+heartbeat('https://google.com')
 
 ## WORKS UNTIL HERE
 
